@@ -6,9 +6,9 @@ Author: minhdq99hp
 '''
 import time
 
-from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import NoSuchElementException
 
 
 def scroll_until_exists(driver, elem_ids, time_out=None):
@@ -36,7 +36,7 @@ def scroll_until_exists(driver, elem_ids, time_out=None):
                 driver.find_element_by_id(elem_id)
                 found = True
                 break
-            except Exception:
+            except NoSuchElementException:
                 continue
 
         if found:
