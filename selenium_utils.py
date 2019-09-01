@@ -18,16 +18,18 @@ def scroll_until_exists(driver, elem_ids, time_out=None):
 
     '''
     if time_out is None:
-        time_out = 240 # seconds
+        time_out = 120 # seconds
 
     start = time.time()
 
     while True:
+        print('scrolling...')
         actions = ActionChains(driver)
-        actions.send_keys(Keys.PAGE_DOWN)
+        # actions.send_keys(Keys.PAGE_DOWN)
+        actions.send_keys(Keys.CONTROL, Keys.END)
         actions.perform()
 
-        time.sleep(0.5)
+        # time.sleep(0.5)
 
         # exit condition
         found = False
